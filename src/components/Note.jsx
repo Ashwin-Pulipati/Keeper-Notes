@@ -8,9 +8,10 @@ function Note(props) {
   const [editedContent, setEditedContent] = useState(props.content);
   const [editedTitle, setEditedTitle] = useState(props.title);
 
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
+  const handleSearchChange = React.useCallback(
+    (event) => setSearchTerm(event.target.value),
+    []
+  );
 
   useEffect(() => {
     highlightContent();
